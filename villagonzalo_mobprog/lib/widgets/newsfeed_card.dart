@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../constants.dart';
 import 'custom_text.dart';
 
@@ -9,6 +10,8 @@ class NewsFeedCard extends StatelessWidget {
   final String date;
   final int numOfLikes;
   final bool hasImage;
+  final String? imagePath;
+  final String? avatarPath;
 
   const NewsFeedCard({
     super.key,
@@ -17,6 +20,8 @@ class NewsFeedCard extends StatelessWidget {
     required this.date,
     this.numOfLikes = 0,
     this.hasImage = false,
+    this.imagePath,
+    this.avatarPath,
   });
 
   @override
@@ -31,10 +36,17 @@ class NewsFeedCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(Icons.person),
-                SizedBox(
-                  width: ScreenUtil().setWidth(18),
+                CircleAvatar(
+                  radius: ScreenUtil().setSp(20),
+                  backgroundColor: Colors.grey[300],
+                  backgroundImage: avatarPath != null
+                      ? AssetImage(avatarPath!)
+                      : null,
+                  child: avatarPath == null
+                      ? const Icon(Icons.person, color: Colors.grey)
+                      : null,
                 ),
+                SizedBox(width: ScreenUtil().setWidth(18)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -53,9 +65,7 @@ class NewsFeedCard extends StatelessWidget {
                           fontSize: ScreenUtil().setSp(12),
                           color: Colors.grey,
                         ),
-                        SizedBox(
-                          width: ScreenUtil().setWidth(3),
-                        ),
+                        SizedBox(width: ScreenUtil().setWidth(3)),
                         Icon(
                           Icons.public,
                           color: Colors.grey,
@@ -70,9 +80,7 @@ class NewsFeedCard extends StatelessWidget {
               ],
             ),
 
-            SizedBox(
-              height: ScreenUtil().setHeight(5),
-            ),
+            SizedBox(height: ScreenUtil().setHeight(5)),
 
             // Post Content
             CustomText(
@@ -81,17 +89,20 @@ class NewsFeedCard extends StatelessWidget {
               color: Colors.black,
             ),
 
-            SizedBox(
-              height: ScreenUtil().setHeight(5),
-            ),
+            SizedBox(height: ScreenUtil().setHeight(5)),
 
             // Post Image
-            hasImage
-                ? const Placeholder()
-                : SizedBox(
-                    height: ScreenUtil().setHeight(1),
-                  ),
-            
+            if (hasImage)
+              imagePath != null
+                  ? Image.asset(
+                      imagePath!,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    )
+                  : const Placeholder()
+            else
+              SizedBox(height: ScreenUtil().setHeight(1)),
+
             // Like, Comment, and Share Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,10 +111,7 @@ class NewsFeedCard extends StatelessWidget {
                   onPressed: () {
                     print('Liked');
                   },
-                  icon: const Icon(
-                    Icons.thumb_up,
-                    color: FB_DARK_PRIMARY,
-                  ),
+                  icon: const Icon(Icons.thumb_up_rounded, color: Colors.blue),
                   label: CustomText(
                     text: numOfLikes.toString(),
                     fontSize: ScreenUtil().setSp(12),
@@ -112,11 +120,10 @@ class NewsFeedCard extends StatelessWidget {
                 ),
 
                 TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.comment,
-                    color: FB_DARK_PRIMARY,
-                  ),
+                  onPressed: () {
+                    print('Comment pressed');
+                  },
+                  icon: const Icon(Icons.chat_bubble_rounded, color: Colors.blueGrey),
                   label: CustomText(
                     text: 'Comment',
                     fontSize: ScreenUtil().setSp(12),
@@ -125,11 +132,10 @@ class NewsFeedCard extends StatelessWidget {
                 ),
 
                 TextButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.redo,
-                    color: FB_DARK_PRIMARY,
-                  ),
+                  onPressed: () {
+                    print('Share pressed');
+                  },
+                  icon: const Icon(Icons.share_rounded, color: Colors.black),
                   label: CustomText(
                     text: 'Share',
                     fontSize: ScreenUtil().setSp(12),
@@ -143,16 +149,9 @@ class NewsFeedCard extends StatelessWidget {
             Row(
               children: [
                 const Icon(Icons.person),
-                SizedBox(
-                  width: ScreenUtil().setWidth(10),
-                ),
+                SizedBox(width: ScreenUtil().setWidth(10)),
                 Container(
-                  padding: EdgeInsets.fromLTRB(
-                    ScreenUtil().setSp(10),
-                    0,
-                    0,
-                    8,
-                  ),
+                  padding: EdgeInsets.fromLTRB(ScreenUtil().setSp(10), 0, 0, 8),
                   alignment: Alignment.centerLeft,
                   height: ScreenUtil().setHeight(25),
                   width: ScreenUtil().setWidth(330),
@@ -171,9 +170,7 @@ class NewsFeedCard extends StatelessWidget {
               ],
             ),
 
-            SizedBox(
-              height: ScreenUtil().setHeight(10),
-            ),
+            SizedBox(height: ScreenUtil().setHeight(10)),
 
             // View Comments
             CustomText(
