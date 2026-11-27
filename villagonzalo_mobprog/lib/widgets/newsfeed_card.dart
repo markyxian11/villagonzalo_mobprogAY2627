@@ -111,7 +111,7 @@ class NewsFeedCard extends StatelessWidget {
                   onPressed: () {
                     print('Liked');
                   },
-                  icon: const Icon(Icons.thumb_up_rounded, color: Colors.blue),
+                  icon: const Icon(Icons.thumb_up_rounded, color: FB_PRIMARY ),
                   label: CustomText(
                     text: numOfLikes.toString(),
                     fontSize: ScreenUtil().setSp(12),
@@ -123,7 +123,7 @@ class NewsFeedCard extends StatelessWidget {
                   onPressed: () {
                     print('Comment pressed');
                   },
-                  icon: const Icon(Icons.chat_bubble_rounded, color: Colors.blueGrey),
+                  icon: const Icon(Icons.chat_bubble_rounded, color: FB_SECONDARY),
                   label: CustomText(
                     text: 'Comment',
                     fontSize: ScreenUtil().setSp(12),
@@ -135,7 +135,7 @@ class NewsFeedCard extends StatelessWidget {
                   onPressed: () {
                     print('Share pressed');
                   },
-                  icon: const Icon(Icons.share_rounded, color: Colors.black),
+                  icon: const Icon(Icons.share_rounded, color: FB_SLATE_BLUE),
                   label: CustomText(
                     text: 'Share',
                     fontSize: ScreenUtil().setSp(12),

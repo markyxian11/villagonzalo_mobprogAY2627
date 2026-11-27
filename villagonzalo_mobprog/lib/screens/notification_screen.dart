@@ -7,8 +7,7 @@ class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
 
   @override
-  State<NotificationScreen> createState() =>
-      NotificationScreenState();
+  State<NotificationScreen> createState() => NotificationScreenState();
 }
 
 class NotificationScreenState extends State<NotificationScreen> {
@@ -17,14 +16,147 @@ class NotificationScreenState extends State<NotificationScreen> {
     return Container(
       color: Colors.white,
       width: ScreenUtil().screenWidth,
-      child: const Column(
+      child: ListView(
         children: [
-          notif.Notification(
-            name: 'Test',
-            post: 'Post',
-            description: 'Description',
+          const notif.Notification(
+            name: 'Arbi Fabillane',
+            post: 'New Photo',
+            description: 'Uploaded a new profile picture.',
           ),
-          Divider(),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Denmark Jay Belleza',
+            post: 'New Post',
+            description: 'Shared a new post on the News Feed.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Arbi Fabillane',
+            post: 'Liked your post',
+            description: 'Liked your recent post.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Jayson Ramirez',
+            post: 'Comment',
+            description: 'Commented on your photo.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Jayson Ramirez',
+            post: 'Shared a Post',
+            description: 'Shared a post with you.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Jesper Sev Murao',
+            post: 'New Photo',
+            description: 'Uploaded a new profile picture.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Jesper Sev Murao',
+            post: 'New Post',
+            description: 'Shared a new post on the News Feed.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Jesper Sev Murao',
+            post: 'Liked your post',
+            description: 'Liked your recent post.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Mar Dodgie Alaman',
+            post: 'Comment',
+            description: 'Commented on your photo.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Mar Dodgie Alaman',
+            post: 'Comment',
+            description: 'Commented on your photo.',
+          ),
+          const Divider(),
+          
+          const notif.Notification(
+            name: 'Ron Jacob Perez',
+            post: 'Shared a Post',
+            description: 'Shared a post with you.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Mar Dodgie Alaman',
+            post: 'Comment',
+            description: 'Commented on your photo.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Mar Dodgie Alaman',
+            post: 'Comment',
+            description: 'Commented on your photo.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Ron Jacob Perez',
+            post: 'Shared a Post',
+            description: 'Shared a post with you.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Jesper Sev Murao',
+            post: 'New Photo',
+            description: 'Uploaded a new profile picture.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Jesper Sev Murao',
+            post: 'New Post',
+            description: 'Shared a new post on the News Feed.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Jesper Sev Murao',
+            post: 'Liked your post',
+            description: 'Liked your recent post.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Mar Dodgie Alaman',
+            post: 'Comment',
+            description: 'Commented on your photo.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Akeesha Espiritu',
+            post: 'Comment',
+            description: 'Commented on your photo.',
+          ),
+          const Divider(),
+
+          const notif.Notification(
+            name: 'Akeesha Espiritu',
+            post: 'Shared a Post',
+            description: 'Shared a post with you.',
+          ),
+          const Divider(),
         ],
       ),
     );
